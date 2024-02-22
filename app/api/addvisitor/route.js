@@ -1,23 +1,22 @@
 import connectDB from "@/database";
-import { Product } from "@/models/Product";
+import { Visitor } from "@/models/Visitor";
 import { NextResponse } from "next/server";
-export async function GET(req) {
+
+export async function POST(req) {
   try {
     await connectDB();
-    const allProducts = (await Product.find({})).reverse();
-    if (allProducts) {
+    const { extractData } = await req.json();
+    const isDone = await Visitor.create(extractData);
+    if (isDone) {
       return NextResponse.json({
         success: true,
-        data: allProducts,
+        message: "Visitor added successfully",
       });
-    } else {
-      throw new Error();
     }
   } catch (error) {
     return NextResponse.json({
       success: false,
       message: "Something went wrong ! try again",
-      error:error.message
     });
   }
 }

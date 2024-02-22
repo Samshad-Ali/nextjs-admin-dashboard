@@ -1,14 +1,15 @@
 import connectDB from "@/database";
-import { Product } from "@/models/Product";
+import { Visitor } from "@/models/Visitor";
 import { NextResponse } from "next/server";
+
 export async function GET(req) {
   try {
     await connectDB();
-    const allProducts = (await Product.find({})).reverse();
-    if (allProducts) {
+    const allVisitors = (await Visitor.find({})).reverse();
+    if (allVisitors) {
       return NextResponse.json({
         success: true,
-        data: allProducts,
+        data: allVisitors,
       });
     } else {
       throw new Error();
@@ -17,7 +18,7 @@ export async function GET(req) {
     return NextResponse.json({
       success: false,
       message: "Something went wrong ! try again",
-      error:error.message
+      error: error.message,
     });
   }
 }

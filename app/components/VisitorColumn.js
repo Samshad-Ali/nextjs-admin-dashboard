@@ -2,38 +2,37 @@
 import React, { useMemo } from "react";
 import CellComponent from "./CellComponent";
 
-export const ProductColumns = () => {
+export const VisitorColumn = () => {
   const columnData = useMemo(
     () => [
       {
-        Header: "Product Name",
-        accessor: "name",
+        Header: "Visitors",
+        accessor: "visitors",
       },
       {
-        Header: "Month",
-        accessor: "month",
+        Header: "Premium Users",
+        accessor: "premiumUsers",
       },
       {
-        Header: "Price",
-        accessor: "price",
+        Header: "Location",
+        accessor: "location",
       },
       {
-        Header: "Sale",
-        accessor: "sales",
+        Header: "Device",
+        accessor: "device",
       },
       {
         Header: "Action",
-        Cell: ({row}) => {
+        Cell: ({ row }) => {
           return <CellComponent row={row} />;
         },
       },
       {
-        Header: "Revenue",
-        accessor: "revenue",
+        Header: "Month",
+        accessor: "month",
       },
     ],
     []
   );
   return columnData;
 };
-

@@ -3,7 +3,7 @@ import User from '@/models/User';
 import {NextResponse} from 'next/server'
 export async function POST(req){ 
     try {
-        connectDB();
+       await connectDB();
         const {name,email} = await req.json();
         if(!name || !email){
             throw new Error;

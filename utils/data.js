@@ -1,7 +1,4 @@
-
-
 export const productOptionData = [
- 
   {
     id: "jan",
     label: "January",
@@ -90,12 +87,7 @@ export const monthsMapper = {
   dec: "December",
 };
 
-export const deviceMapper = {
-  desktop: "Desktop",
-  laptop: "Laptop",
-  mobile: "Mobile",
-  tablet: "Tablet",
-};
+export const deviceMapper = ["Desktop", "Laptop", "Mobile", "Tablet"];
 
 export const visiorsFormControls = [
   {

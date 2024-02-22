@@ -16,8 +16,7 @@ export async function DELETE(req,params){
         }else{
             return NextResponse.json({
                 success:false,
-                message:'Product not found !',
-                data:isProduct
+                message:'Product not found !'
             })
         }
     } catch (error) {

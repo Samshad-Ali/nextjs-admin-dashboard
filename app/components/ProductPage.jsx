@@ -4,7 +4,6 @@ import AddItemLayout from "./AddItemLayout";
 import { dispatchAction, selecter } from "@/lib/utils/reduxUtils";
 import { setIsAddCart } from "@/lib/slices/slice";
 import Table from "./Table";
-import CellComponent from "./CellComponent";
 import { ProductColumns } from "./ProductColumns";
 
 
