@@ -1,15 +1,11 @@
 import { setProducts, setVisitors } from "@/lib/slices/slice";
 import { dispatchAction, selecter } from "@/lib/utils/reduxUtils";
-import { routes } from "@/utils/route";
 import axios from "axios";
 import { useEffect} from "react";
 import { toast } from "react-hot-toast";
-import { useRouter,usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 const useWrapper = () => {
   const { status } = useSession();
-  const router = useRouter();
-  const pathName = usePathname();
   const dispatch = dispatchAction();
   const refresh = selecter((state) => state.dashboardReducer.refresh);
   console.log(status)
@@ -30,13 +26,6 @@ const useWrapper = () => {
     fetchingData();
   }, [isAddCartOpen, refresh]);
 
-  // useEffect(() => {
-  //   if(status==='unauthenticated' && (pathName.includes(routes.home || routes.dashboard || routes.products || routes.visitors))){
-  //     router.push(routes.unAuth)
-  //   }else if(status==='authenticated' && pathName.includes(routes.unAuth)){
-  //     router.push(routes.home)
-  //   }
-  // }, [status,pathName]);
   return {status};
 };
 
