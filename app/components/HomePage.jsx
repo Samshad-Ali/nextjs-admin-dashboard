@@ -6,7 +6,8 @@ import { IoCart } from "react-icons/io5";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { selecter } from "@/lib/utils/reduxUtils";
 import { productOptionData } from "@/utils/data";
-import TotalUserChart from "./TotalUserChart";
+import TotalUserChart from "./Chart";
+import Chart from "./Chart";
 
 const HomePage = () => {
   const products = selecter((state) => state?.dashboardReducer?.products);
@@ -68,8 +69,8 @@ const HomePage = () => {
         />
       </div>
       <div className="w-full flex md:flex-row flex-col mt-10">
-        <TotalUserChart title="Total Visitors per Month" data={newDataUser} />
-        <TotalUserChart title="Total Revenue per Month" data={newDataRevenue} />
+        <Chart title="Total Visitors per Month" data={newDataUser} />
+        <Chart title="Total Revenue per Month" data={newDataRevenue} />
       </div>
     </div>
   );

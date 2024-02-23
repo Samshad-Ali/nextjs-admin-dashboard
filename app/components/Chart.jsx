@@ -8,7 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-const TotalUserChart = ({ data,title }) => {
+const Chart = ({ data,title }) => {
   return (
     <div className="w-full md:w-1/2 p-2 text-white h-[400px] ">
         <h2 className='text-xl mb-5 font-bold'>{title}</h2>
@@ -28,9 +28,8 @@ const TotalUserChart = ({ data,title }) => {
             <Area
               type="monotone"
               dataKey="data"
-              stroke="#ffffff"
               strokeWidth={2}
-              fill="#152238"
+              fill="#FF8000"
             />
           </AreaChart>
         </ResponsiveContainer>
@@ -39,4 +38,4 @@ const TotalUserChart = ({ data,title }) => {
   );
 };
 
-export default TotalUserChart;
+export default Chart;

@@ -12,6 +12,7 @@ const useWrapper = () => {
   const pathName = usePathname();
   const dispatch = dispatchAction();
   const refresh = selecter((state) => state.dashboardReducer.refresh);
+  console.log(status)
   const isAddCartOpen = selecter(
     (state) => state.dashboardReducer.isAddCartOpen
   );
@@ -29,13 +30,13 @@ const useWrapper = () => {
     fetchingData();
   }, [isAddCartOpen, refresh]);
 
-  useEffect(() => {
-    if(status==='unauthenticated' && (pathName.includes(routes.home || routes.dashboard || routes.products || routes.visitors))){
-      router.push(routes.unAuth)
-    }else if(status==='authenticated' && pathName.includes(routes.unAuth)){
-      router.push(routes.home)
-    }
-  }, [status,pathName]);
+  // useEffect(() => {
+  //   if(status==='unauthenticated' && (pathName.includes(routes.home || routes.dashboard || routes.products || routes.visitors))){
+  //     router.push(routes.unAuth)
+  //   }else if(status==='authenticated' && pathName.includes(routes.unAuth)){
+  //     router.push(routes.home)
+  //   }
+  // }, [status,pathName]);
   return {status};
 };
 
