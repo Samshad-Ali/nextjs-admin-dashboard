@@ -18,10 +18,8 @@ const useWrapper = () => {
   const fetchingData = async () => {
     try {
       const response = await axios.get("/api/products");
-      console.log("products from wrapper", response?.data);
       dispatch(setProducts(response?.data?.data));
       const res = await axios.get("/api/visitors");
-      console.log("visitors from wrapper", res?.data);
       dispatch(setVisitors(res?.data?.data));
     } catch (error) {
       return toast.error(error.message);
